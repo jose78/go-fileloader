@@ -23,9 +23,9 @@ func TestFileMapperFactory(t *testing.T) {
 		path string
 	}
 	tests := []struct {
-		name string
-		args args
-		want TestStruct
+		name    string
+		args    args
+		want    TestStruct
 		wantErr bool
 	}{
 		//{"Load hcl content", args{path: "test/resources/test_load.hcl"}, result, false},
@@ -37,9 +37,9 @@ func TestFileMapperFactory(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			var testValue TestStruct
 			err := FileMapperFactory(tt.args.path).Mapper(&testValue)
-			if ! tt.wantErr && err != nil {
+			if !tt.wantErr && err != nil {
 				t.Errorf("FileMapperFactory() error: %v", err)
-			} 
+			}
 			if !reflect.DeepEqual(testValue, tt.want) {
 				t.Errorf("FileMapperFactory() = %v, want %v", testValue, tt.want)
 			}

@@ -3,14 +3,13 @@ package io
 import (
 	"encoding/json"
 	"fmt"
-	"os"
-	"path/filepath"
+	"github.com/BurntSushi/toml"
 	"github.com/hashicorp/hcl2/gohcl"
 	"github.com/hashicorp/hcl2/hclparse"
-	"github.com/BurntSushi/toml"
 	"gopkg.in/yaml.v3"
+	"os"
+	"path/filepath"
 )
-
 
 // Factory to provide the mapper based on the extension. By default, the Judofile will be parsed as a yaml file.
 func FileMapperFactory(path string) FileMapper {
@@ -54,8 +53,6 @@ type Hcl struct {
 
 // Implementation the interface FileMapper
 func (fileType Hcl) Mapper(data any) error {
-
-
 
 	parser := hclparse.NewParser()
 	f, parseDiags := parser.ParseHCLFile(fileType.path)
@@ -113,4 +110,3 @@ func (fileType Toml) Mapper(data any) error {
 	}
 	return nil
 }
-
