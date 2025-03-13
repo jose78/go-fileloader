@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 )
 
-// Factory to provide the mapper based on the extension. By default, the Judofile will be parsed as a yaml file.
+// Factory to provide the mapper based on the extension.
 func FileMapperFactory(path string) FileMapper {
 	extension := filepath.Ext(path)
 	var mapper FileMapper
