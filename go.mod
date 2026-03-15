@@ -1,4 +1,4 @@
-module hgithub.com/jose78/go-fileloader
+module github.com/jose78/go-fileloader
 
 go 1.22.12
 
